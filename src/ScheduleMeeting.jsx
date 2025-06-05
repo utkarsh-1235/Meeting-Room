@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const ScheduleMeeting = () => {
+    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [dateTime, setDateTime] = useState('');
@@ -16,7 +17,7 @@ const ScheduleMeeting = () => {
           { id: 2, name: 'Jane Smith', email: 'jane@example.com', password: 'password' },
           { id: 3, name: 'Mike Johnson', email: 'mike@example.com', password: 'password' }
         ]);
-        
+
     const handleSchedule = () => {
       if (!title || !dateTime) {
         alert('Please fill in required fields');
@@ -41,7 +42,14 @@ const ScheduleMeeting = () => {
       setSelectedParticipants([]);
       setDuration(60);
     };
-
+    
+if (!currentUser) {
+    return (
+      <div className="p-6 text-red-600 font-semibold">
+        Please log in to schedule a meeting.
+      </div>
+    );
+  }
     const toggleParticipant = (userId) => {
       setSelectedParticipants(prev => 
         prev.includes(userId) 
