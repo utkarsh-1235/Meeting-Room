@@ -10,7 +10,7 @@ import { useMeeting } from './Context/userContext'
 
 function App() {
   const { currentUser, currentView, activeMeeting } = useMeeting();
-
+  console.log(currentUser);
   if (!currentUser) {
     return <LoginForm />;
   }
